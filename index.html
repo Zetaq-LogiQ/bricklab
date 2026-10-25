@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>BrickLab</title>
+  <meta name="description" content="BrickLab: build colourful 3D brick worlds, then press Play to test real physics and engineering." />
+  <meta name="theme-color" content="#2b6fe0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script type="module" crossorigin src="./assets/index-LrDT1va4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-zjlKXF6W.css">
+</head>
+<body>
+  <div id="app">
+    <div id="viewport"></div>
+
+    <header id="topbar">
+      <div class="brand" aria-label="BrickLab">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-name">Brick<b>Lab</b></span>
+      </div>
+      <div class="mode" role="group" aria-label="Mode">
+        <button id="modeBuild" class="mode-btn active" data-tip="Build mode (Enter)"></button>
+        <button id="modePlay" class="mode-btn play" data-tip="Play: test with physics (Enter)"></button>
+      </div>
+      <div class="group" id="toolGroup" role="toolbar" aria-label="Tools"></div>
+      <div class="group" id="editGroup"></div>
+      <div class="spacer"></div>
+      <div class="group" id="menuGroup"></div>
+    </header>
+
+    <aside id="catalog" aria-label="Parts">
+      <div class="cat-tabs" id="catTabs" role="tablist"></div>
+      <label class="search"><span class="sr">Search parts</span><input id="partSearch" type="search" placeholder="Search parts" autocomplete="off" /></label>
+      <div class="part-grid" id="partGrid"></div>
+    </aside>
+
+    <footer id="palette" aria-label="Colours">
+      <div class="current" id="currentPart"></div>
+      <div class="swatches" id="swatches"></div>
+    </footer>
+
+    <div id="playbar" hidden>
+      <div class="play-controls">
+        <div class="dpad" id="dpad" aria-label="Drive">
+          <button data-key="fwd" aria-label="Forward"></button>
+          <button data-key="left" aria-label="Left"></button>
+          <button data-key="back" aria-label="Back"></button>
+          <button data-key="right" aria-label="Right"></button>
+        </div>
+        <button class="big-action boost" id="boostBtn"><span>Boost</span><small>SPACE</small></button>
+        <button class="big-action fire" id="fireBtn"><span>Fire</span><small>F</small></button>
+      </div>
+      <div class="play-settings">
+        <label class="toggle"><input type="checkbox" id="setGlue" checked /><span>Snapped bricks</span></label>
+        <label class="toggle"><input type="checkbox" id="setAnchor" checked /><span>Stick to baseplate</span></label>
+        <label class="toggle"><input type="checkbox" id="setSlow" /><span>Slow motion</span></label>
+        <label class="toggle"><input type="checkbox" id="setFollow" checked /><span>Camera follows</span></label>
+      </div>
+      <p class="play-hint" id="playHint">Click to throw balls · Arrows/WASD drive · SPACE boost · F fire</p>
+    </div>
+
+    <div id="hud" hidden>
+      <div class="stat"><span>Speed</span><b id="hudSpeed">0</b><small>studs/s</small></div>
+      <div class="stat"><span>Height</span><b id="hudHeight">0</b><small>studs</small></div>
+      <div class="stat"><span>Highest</span><b id="hudMax">0</b><small>studs</small></div>
+      <div class="stat"><span>Gravity</span><b id="hudGravity">9.8</b><small>m/s²</small></div>
+    </div>
+
+    <aside id="sidecard" hidden></aside>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="modalRoot"></div>
+
+    <div id="loading">
+      <div class="load-inner">
+        <div class="load-bricks" aria-hidden="true"><i></i><i></i><i></i></div>
+        <h1>Brick<b>Lab</b></h1>
+        <p id="loadText">Unpacking bricks…</p>
+        <div class="load-bar"><div id="loadFill"></div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
